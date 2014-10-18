@@ -4,7 +4,7 @@
 The main purpose of this assignment is to provide the students with a straight and close contact to the
 operation of a pipelined computer architecture, as well as to the techniques that are commonly applied
 in order to maximize the efficiency of the developed computer programs. For that purpose, a dedicated
-simulation environment will be adopted: the WinMIPS64 [1], version 1.57.
+simulation environment will be adopted: the WinMIPS64, version 1.57.
 
 # Environment
 
