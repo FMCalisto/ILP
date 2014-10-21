@@ -35,9 +35,9 @@ fn:     .word    0
         daddi    $6, $1, 96     ; $6 = Nx8(vecA)
         l.d      f0, zero($0)   ; f0 = 0
 
-        l.d      f1, 0($1)
+loop:   l.d      f1, 0($1)
         l.d      f2, 0($2)
-loop:   mul.d    f3, f1, f2
+        mul.d    f3, f1, f2
         add.d    f0, f0, f3
 
         dadd     $3, $4, $5     ; fn = fn_1 + fn_2
