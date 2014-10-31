@@ -32,22 +32,39 @@ fn:     .word    0
         daddi    $3, $0, 0      ; $3 = fn
         daddi    $4, $0, 1      ; $4 = fn_1
         daddi    $5, $0, 0      ; $5 = fn_2
-        daddi    $6, $1, 48     ; $6 = Nx4(vecA)
+        daddi    $6, $1, 96     ; $6 = Nx8(vecA)
         l.d      f0, zero($0)   ; f0 = 0
 
-loop:   l.d      f1, 0($1)
+loop:   ; #1
+        l.d      f1, 0($1)
         l.d      f2, 0($2)
-        mul.d    f3, f1, f2
-
 
         dadd     $3, $4, $5     ; fn = fn_1 + fn_2
+
+        mul.d    f3, f1, f2
+
         daddi    $5, $4, 0      ; fn_2 = fn_1
         daddi    $4, $3, 0      ; fn_1 = fn
 
+        daddi    $1, $1, 8
+        daddi    $2, $2, 8
+        slt      $7, $1, $6
+
+        add.d    f0, f0, f3
+
+		; #2
+        l.d      f1, 0($1)
+        l.d      f2, 0($2)
+
+        dadd     $3, $4, $5     ; fn = fn_1 + fn_2
+
+        mul.d    f3, f1, f2
+
+        daddi    $5, $4, 0      ; fn_2 = fn_1
+        daddi    $4, $3, 0      ; fn_1 = fn
 
         daddi    $1, $1, 8
         daddi    $2, $2, 8
-
         slt      $7, $1, $6
 
         add.d    f0, f0, f3

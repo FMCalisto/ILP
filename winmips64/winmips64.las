@@ -1,1 +1,1 @@
-Z:\home\francisco\Desktop\GitHub\ILP\prog23a.s
+P:\Windows\Programs\Develop\GitHub\ILP\prog24a.s
